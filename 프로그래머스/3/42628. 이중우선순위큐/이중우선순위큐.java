@@ -30,7 +30,7 @@ class Solution {
                 }
         }
       }
-        System.out.println(min);
+
         if(max.isEmpty()){
             return new int[] {0,0};
         }
