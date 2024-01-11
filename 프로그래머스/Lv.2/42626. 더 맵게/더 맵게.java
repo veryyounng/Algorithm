@@ -7,13 +7,10 @@ class Solution {
         for(int i = 0; i < scoville.length; i++){
             q.add(scoville[i]);
         }
-        while(q.peek() < K){
-            if(q.size() == 1){
-                return -1;
-            }
+        while(q.size() > 1 && q.peek() < K){
             q.add(q.poll() + (q.poll() * 2));
             answer ++;
         }
-        return answer;
+        return q.peek() >= K? answer : -1;
     }
 }
