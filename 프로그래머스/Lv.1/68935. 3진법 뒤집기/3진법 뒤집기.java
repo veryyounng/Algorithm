@@ -1,7 +1,7 @@
 class Solution {
     public int solution(int n) {
         String str = "";
-        while(n >= 1){
+        while(n > 0){
             str += n % 3;
             n /= 3;
         }
