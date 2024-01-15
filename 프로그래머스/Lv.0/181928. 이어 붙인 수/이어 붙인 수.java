@@ -1,6 +1,5 @@
 class Solution {
     public int solution(int[] num_list) {
-        int answer = 0;
         String odd = "";
         String even = "";
         
@@ -10,7 +9,6 @@ class Solution {
             else
                 even += "" + num_list[i];
         }
-        answer = Integer.parseInt(odd) + Integer.parseInt(even);
-        return answer;
+        return Integer.parseInt(odd) + Integer.parseInt(even);
     }
 }
