@@ -1,22 +1,13 @@
 class Solution {
     public String solution(String s) {
         String answer = "";
+        int cnt = 0;
         String[] str = s.split("");
         
-        int idx = 0;
-        for(int i=0; i<str.length; i++) {
-            if(str[i].equals(" ")) {
-                idx = 0;
-            } else if(idx % 2 == 0) {
-                str[i] = str[i].toUpperCase();
-                idx++;
-            } else if(idx % 2 != 0) {
-                str[i] = str[i].toLowerCase();
-                idx++;
-            }
-            answer += str[i];
-        } 
-        
+        for(String a : str){
+            cnt = a.contains(" ") ? 0 : cnt + 1;
+            answer += cnt % 2 == 0 ? a.toLowerCase() : a.toUpperCase();
+        }
         return answer;
     }
 }
