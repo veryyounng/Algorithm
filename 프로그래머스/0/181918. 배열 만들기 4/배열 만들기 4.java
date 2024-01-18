@@ -1,33 +1,25 @@
-import java.util.ArrayList;
-
+import java.util.*;
 class Solution {
     public int[] solution(int[] arr) {
-        ArrayList<Integer> tmp= new ArrayList();
-        
-        int i=0;
-        while(i<arr.length){
-            
-            if(tmp.size()==0){
-                tmp.add(arr[i]);
-                i=i+1;
+        ArrayList<Integer> li = new ArrayList<>();
+        int i = 0; 
+        while(i < arr.length){
+            if(li.size() == 0){
+                li.add(arr[i]);
+                i++;
+            }else if( li.get(li.size() - 1) < arr[i]){
+                li.add(arr[i]);
+                i++;
+            }else if(li.get(li.size() - 1 ) >= arr[i]){
+                li.remove(li.size() - 1);
             }
-            else{
-                int last=tmp.get(tmp.size()-1);
-                if(tmp.size()!=0 && last<arr[i]){
-                tmp.add(arr[i]);
-                i=i+1;
-                }
-                else if(tmp.size()!=0 && last>=arr[i]){
-                    tmp.remove(tmp.size()-1);
-                }
-            }
-            
         }
         
-        int stk[]=new int[tmp.size()];
-        for(int k=0;k<tmp.size();k++){
-            stk[k]=tmp.get(k).intValue();
+        int[] stk = new int[li.size()];
+        for(int j = 0; j < li.size(); j++){
+            stk[j] = li.get(j);
         }
+        
         return stk;
     }
 }
