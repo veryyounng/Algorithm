@@ -1,8 +1,8 @@
 class Solution {
-    public StringBuilder solution(String my_string, int[][] queries) {
-        StringBuilder str = new StringBuilder(my_string);
+    public String solution(String my_string, int[][] queries) {
+       StringBuilder str = new StringBuilder(my_string);
         
-        for(int i = 0; i < queries.length; i++) {
+        for(int i = 0; i < queries.length; i++){
             int start = queries[i][0];
             int end = queries[i][1];
             
@@ -11,6 +11,6 @@ class Solution {
             str.replace(start, end+1, s.toString());
         }
         
-        return str;
+        return str.toString();
     }
 }
