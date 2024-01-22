@@ -1,17 +1,14 @@
-import java.util.*;
-
 class Solution {
     public int[] solution(int n, int k) {
-        ArrayList<Integer> li = new ArrayList<>();
-        for(int i = 1; i <= n; i++){
-            if(i % k == 0){
-                li.add(i);
-            }
+        int count = n / k;
+
+
+        int[] answer = new int[count];
+
+        for (int i = 1; i <= count; i++) {
+            answer[i - 1] = k * i;
         }
-        int[] answer = new int[li.size()];
-        for(int i = 0; i < li.size(); i++){
-            answer[i] = li.get(i);
-        }
+
         return answer;
     }
 }
