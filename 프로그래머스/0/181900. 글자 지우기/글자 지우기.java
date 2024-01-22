@@ -5,8 +5,8 @@ class Solution {
             temp[indices[i]] = "";
         }
         String answer = "";
-        for(int i = 0; i < temp.length; i ++){
-            answer += temp[i];
+        for(String a : temp){
+            answer += a;
         }
         return answer;
     }
