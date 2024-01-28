@@ -9,7 +9,7 @@ class Solution {
                 String tmp = String.valueOf(c);
                 answer += tmp.toLowerCase();
             }else if(c == 'A'){
-                answer += String.valueOf(c);
+                answer += c;
             }
         }
         return answer;
