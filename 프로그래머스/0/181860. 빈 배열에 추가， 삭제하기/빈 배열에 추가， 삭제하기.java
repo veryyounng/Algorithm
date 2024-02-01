@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Solution {
-    public Stack<Integer> solution(int[] arr, boolean[] flag) {
+    public int[] solution(int[] arr, boolean[] flag) {
         Stack<Integer> stack = new Stack<>();
         for(int i = 0; i < flag.length; i++){
             if(flag[i]){
@@ -20,6 +20,6 @@ class Solution {
         // for(int i = 0; i < answer.length; i++){
         //     answer[i] = stack.pop();
         // }
-        return stack;
+        return stack.stream().mapToInt(Integer::intValue).toArray();
     }
 }
