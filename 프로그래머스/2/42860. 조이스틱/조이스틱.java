@@ -3,7 +3,7 @@ class Solution {
         int answer = 0;
         int length = name.length();
 
-        int index; // 다음 값들을 확인할 때 사용
+        int index = 0; // 다음 값들을 확인할 때 사용
         int move = length - 1; // 좌우 움직임 수를 체크
 
         for(int i = 0; i < name.length(); i++){
