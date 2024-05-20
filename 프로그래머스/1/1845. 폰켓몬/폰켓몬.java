@@ -2,19 +2,17 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] nums) {
-        
-        int max = nums.length / 2;
-        HashSet<Integer> set = new HashSet<>();
-        
-        for(int i : nums){
-            set.add(i);
+        HashSet<Integer> mon = new HashSet<>();  
+        for(int i = 0; i < nums.length; i++){
+            mon.add(nums[i]);
         }
-        
-        if(set.size() > max){
-            return max;
+        int answer = 0;
+        int n = nums.length / 2;
+        if(mon.size() > n){
+            answer = n;
         }else{
-            return set.size();
+            answer = mon.size();
         }
-        
+        return answer;
     }
 }
