@@ -1,22 +1,15 @@
-import java.util.HashMap;
+import java.util.Arrays;
 
 class Solution {
-    public boolean solution(String[] phone_book) {
-        
-        HashMap<String, Integer> map = new HashMap<>();
-        
-        for (String phone : phone_book) {
-            map.put(phone, 1);
-        }
-        
-        for (String phone : phone_book) {
-            for (int i = 1; i < phone.length(); i++) {
-                if (map.containsKey(phone.substring(0, i))) {
-                    return false;
-                }
+    public boolean solution(String[] phoneBook) {
+        Arrays.sort(phoneBook);
+        boolean result = true;
+        for (int i=0; i<phoneBook.length-1; i++) {
+            if (phoneBook[i+1].startsWith(phoneBook[i])) {
+                result = false;
+                break;
             }
         }
-        
-        return true;
+        return result;
     }
 }
