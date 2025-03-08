@@ -1,18 +1,17 @@
 def solution(tickets):
-    from collections import defaultdict
-
-    graph = defaultdict(list)
+    answer = []
+    visited = [0] * len(tickets)
     
-    # 티켓을 도착지를 기준으로 정렬하여 저장 (사전순으로 방문하기 위해)
-    for src, dst in sorted(tickets):
-        graph[src].append(dst)
-
-    route = []
-
-    def dfs(airport):
-        while graph[airport]:
-            dfs(graph[airport].pop(0))  # 가장 앞의 도착지를 방문
-        route.append(airport)
-
-    dfs("ICN")  # 출발지 "ICN"에서 DFS 시작
-    return route[::-1]  # 경로를 뒤집어서 반환
+    def DFS(now, path):
+        if len(path) == len(tickets)+1:
+            answer.append(path)
+            return
+        
+        for idx, ticket in enumerate(tickets):
+            if ticket[0] == now and visited[idx] == 0:
+                visited[idx] = 1
+                DFS(ticket[1], path+[ticket[1]])
+                visited[idx] = 0
+    DFS("ICN", ["ICN"])
+    answer.sort()
+    return answer[0]
